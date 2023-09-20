@@ -6,7 +6,7 @@ Command: npx gltfjsx@6.2.13 public/models/about-jake.glb -o app/AboutJake.tsx -r
 import React, { useEffect, useState, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
-import { MathUtils, Vector3 } from "three";
+import { Euler, MathUtils, Vector3 } from "three";
 
 export function AboutJake(props) {
   const [isBreaking, setIsBreaking] = useState(false);
@@ -40,6 +40,13 @@ export function AboutJake(props) {
           .add(mesh.directionVector)
           .clone()
           .multiplyScalar(3);
+
+        mesh.originalRotation = mesh.rotation.clone();
+        mesh.targetRotation = new Euler(
+          Math.random() * Math.PI,
+          Math.random() * Math.PI,
+          Math.random() * Math.PI
+        );
       });
   }, [isBreaking]);
 
@@ -66,6 +73,21 @@ export function AboutJake(props) {
             mesh.position.z = MathUtils.lerp(
               mesh.originalPosition.z,
               mesh.targetPosition.z,
+              state.clock.elapsedTime / 50
+            );
+            mesh.rotation.x = MathUtils.lerp(
+              mesh.originalRotation.x,
+              mesh.targetRotation.x,
+              state.clock.elapsedTime / 50
+            );
+            mesh.rotation.y = MathUtils.lerp(
+              mesh.originalRotation.y,
+              mesh.targetRotation.y,
+              state.clock.elapsedTime / 50
+            );
+            mesh.rotation.z = MathUtils.lerp(
+              mesh.originalRotation.z,
+              mesh.targetRotation.z,
               state.clock.elapsedTime / 50
             );
           }
