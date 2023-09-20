@@ -1,8 +1,4 @@
-# R3F Template
-
-A basic NextJS template, set up with r3f, drei, three, Tailwind and Typescript.
-
-Happy 3D coding!
+See it run on [Code Sandbox](https://codesandbox.io/p/sandbox/github/JakePitman/Explode/tree/main)
 
 ## Getting Started
 

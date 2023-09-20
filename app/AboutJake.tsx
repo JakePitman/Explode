@@ -21,8 +21,7 @@ export function AboutJake(props) {
     const groupWorldPosition = new Vector3();
     group.current.getWorldPosition(groupWorldPosition); // World pos of world [ 0,0,0 ]
 
-    isBreaking &&
-      group.current &&
+    group.current &&
       group.current.children.forEach((mesh) => {
         mesh.originalPosition = mesh.position.clone(); // Clone pos of current mesh
         const meshWorldPosition = new Vector3();
@@ -48,7 +47,7 @@ export function AboutJake(props) {
           Math.random() * Math.PI
         );
       });
-  }, [isBreaking]);
+  }, []);
 
   useFrame((state, delta) => {
     if (isBreaking) {
