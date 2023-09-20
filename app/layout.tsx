@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "R3F Template",
+  title: "Explode",
   description: "R3F Template, with Next, Tailwind and Typescript",
 };
 
