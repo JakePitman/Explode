@@ -1,19 +1,17 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { Environment, OrbitControls } from "@react-three/drei";
+
+import { AboutJake } from "./AboutJake";
 
 export const Experience = () => {
   return (
     <Canvas>
-      <color args={["black"]} attach="background" />
+      <color args={["white"]} attach="background" />
       <OrbitControls />
-      <ambientLight />
-
-      <mesh rotation={[Math.PI * 0.25, Math.PI * 0.25, 0]}>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshNormalMaterial />
-      </mesh>
+      <ambientLight intensity={7} />
+      <AboutJake />
     </Canvas>
   );
 };
