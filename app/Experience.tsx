@@ -23,7 +23,10 @@ export const Experience = () => {
         breakingState={breakingState}
         setBreakingState={setBreakingState}
       />
-      <AboutJake breakingState={breakingState} />
+      <AboutJake
+        breakingState={breakingState}
+        setBreakingState={setBreakingState}
+      />
     </Canvas>
   );
 };
