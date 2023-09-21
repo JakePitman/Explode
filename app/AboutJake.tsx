@@ -77,38 +77,39 @@ export function AboutJake({ breakingState, setBreakingState }: AboutJakeProps) {
       }
     }
 
+    const speedDivision = 30; // How much to slow the speed by
     group.current &&
       group.current.children.forEach((mesh) => {
         if (mesh.originalPosition) {
           mesh.position.x = MathUtils.lerp(
             mesh.originalPosition.x,
             mesh.targetPosition.x,
-            elapsedTime / 50
+            elapsedTime / speedDivision
           );
           mesh.position.y = MathUtils.lerp(
             mesh.originalPosition.y,
             mesh.targetPosition.y,
-            elapsedTime / 50
+            elapsedTime / speedDivision
           );
           mesh.position.z = MathUtils.lerp(
             mesh.originalPosition.z,
             mesh.targetPosition.z,
-            elapsedTime / 50
+            elapsedTime / speedDivision
           );
           mesh.rotation.x = MathUtils.lerp(
             mesh.originalRotation.x,
             mesh.targetRotation.x,
-            elapsedTime / 50
+            elapsedTime / speedDivision
           );
           mesh.rotation.y = MathUtils.lerp(
             mesh.originalRotation.y,
             mesh.targetRotation.y,
-            elapsedTime / 50
+            elapsedTime / speedDivision
           );
           mesh.rotation.z = MathUtils.lerp(
             mesh.originalRotation.z,
             mesh.targetRotation.z,
-            elapsedTime / 50
+            elapsedTime / speedDivision
           );
         }
       });
