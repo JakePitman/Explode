@@ -6,6 +6,11 @@ type Props = {
   breakingState: BreakingStates;
   setBreakingState: React.Dispatch<React.SetStateAction<BreakingStates>>;
 };
+const stateToTextMap = {
+  original: "Break me",
+  breaking: "Fix me",
+  fixing: "Fixing..",
+};
 export const TitleSequence = ({ breakingState, setBreakingState }: Props) => {
   return (
     <Html fullscreen>
@@ -15,7 +20,7 @@ export const TitleSequence = ({ breakingState, setBreakingState }: Props) => {
           onClick={() => setBreakingState("breaking")}
           disabled={breakingState !== "original"}
         >
-          Break me
+          {stateToTextMap[breakingState]}
         </button>
       </div>
     </Html>
