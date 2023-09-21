@@ -73,11 +73,11 @@ export function AboutJake({ breakingState, setBreakingState }: AboutJakeProps) {
         setBreakingState("original");
       } else {
         // Times 4 makes fixing 4 times faster than breaking
-        setElapsedTime(elapsedTime - delta * 4);
+        setElapsedTime(elapsedTime - delta * 5);
       }
     }
 
-    const speedDivision = 30; // How much to slow the speed by
+    const speedDivision = 40; // How much to slow the speed by
     group.current &&
       group.current.children.forEach((mesh) => {
         if (mesh.originalPosition) {
