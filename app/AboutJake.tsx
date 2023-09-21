@@ -72,7 +72,8 @@ export function AboutJake({ breakingState, setBreakingState }: AboutJakeProps) {
         setElapsedTime(0);
         setBreakingState("original");
       } else {
-        setElapsedTime(elapsedTime - delta);
+        // Times 4 makes fixing 4 times faster than breaking
+        setElapsedTime(elapsedTime - delta * 4);
       }
     }
 
