@@ -39,7 +39,6 @@ const buttonVariants = {
   show: {
     opacity: 1,
     transition: {
-      type: "tween",
       delay: 5,
       duration: 2,
     },
@@ -78,7 +77,7 @@ export const TitleSequence = ({ breakingState, setBreakingState }: Props) => {
 
         <motion.button
           variants={buttonVariants}
-          className="py-1 mt-4 w-60 text-black rounded border-2 border-black border-solid transition-all hover:text-white hover:bg-black"
+          className="py-1 mt-4 w-60 text-white rounded bg-sky-950"
           onClick={() => {
             if (breakingState === "original") {
               setBreakingState("breaking");
