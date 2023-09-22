@@ -8,24 +8,76 @@ type Props = {
   setBreakingState: React.Dispatch<React.SetStateAction<BreakingStates>>;
 };
 const stateToTextMap = {
-  original: "Break me",
-  breaking: "Fix me",
-  fixing: "Fixing..",
+  original: "Shatter expectations",
+  breaking: "Revert expectations",
+  fixing: "Reverting",
+};
+
+const textVariants = {
+  hidden: {
+    opacity: 0,
+    x: -10,
+    transition: {
+      type: "tween",
+      duration: 2,
+    },
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "tween",
+      duration: 2,
+    },
+  },
+};
+
+const buttonVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      type: "tween",
+      delay: 2,
+      duration: 2,
+    },
+  },
 };
 
 export const TitleSequence = ({ breakingState, setBreakingState }: Props) => {
   return (
     <Html fullscreen>
       <motion.div
-        animate={{ opacity: 1 }}
-        initial={{ opacity: 0 }}
+        initial="hidden"
+        animate="show"
         transition={{
-          duration: 1,
+          staggerChildren: 0.2,
         }}
-        className="flex absolute justify-center w-full top-[100px]"
+        className="flex absolute flex-col items-center w-full top-[100px]"
       >
-        <button
-          className="py-1 px-5 text-black rounded border-2 border-black border-solid transition-all hover:text-white hover:bg-black"
+        <div className="flex items-end">
+          <motion.p
+            variants={textVariants}
+            className="pr-2 text-2xl text-black"
+          >
+            2D
+          </motion.p>
+          <motion.p variants={textVariants} className="pr-2 text-black">
+            is
+          </motion.p>
+          <motion.p variants={textVariants} className="text-2xl text-black">
+            boring
+          </motion.p>
+          <motion.p variants={textVariants} className="text-2xl text-black">
+            .
+          </motion.p>
+        </div>
+
+        <motion.button
+          variants={buttonVariants}
+          className="py-1 px-5 mt-4 text-black rounded border-2 border-black border-solid transition-all hover:text-white hover:bg-black"
           onClick={() => {
             if (breakingState === "original") {
               setBreakingState("breaking");
@@ -36,7 +88,7 @@ export const TitleSequence = ({ breakingState, setBreakingState }: Props) => {
           disabled={breakingState === "fixing"}
         >
           {stateToTextMap[breakingState]}
-        </button>
+        </motion.button>
       </motion.div>
     </Html>
   );
