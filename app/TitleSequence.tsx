@@ -53,7 +53,7 @@ export const TitleSequence = ({ breakingState, setBreakingState }: Props) => {
         animate="show"
         transition={{
           delayChildren: 1,
-          staggerChildren: 0.2,
+          staggerChildren: 0.3,
         }}
         className="flex absolute flex-col items-center w-full top-[100px]"
       >
