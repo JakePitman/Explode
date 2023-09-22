@@ -8,6 +8,7 @@ import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import { Euler, MathUtils, Vector3, Group, Mesh } from "three";
 import { BreakingStates } from "./Experience";
+import { motion } from "framer-motion";
 
 type AboutJakeProps = {
   breakingState: BreakingStates;
@@ -45,7 +46,7 @@ export function AboutJake({ breakingState, setBreakingState }: AboutJakeProps) {
         mesh.targetRotation = new Euler(
           Math.random() * Math.PI,
           Math.random() * Math.PI,
-          Math.random() * Math.PI
+          Math.random() * Math.PI,
         );
       });
   }, []);
@@ -54,7 +55,7 @@ export function AboutJake({ breakingState, setBreakingState }: AboutJakeProps) {
     // Set origin mesh to visible only when in original state
     if (group.current) {
       const originMesh = group.current.children.find(
-        (child) => child.name === "origin"
+        (child) => child.name === "origin",
       ) as Mesh;
       if (breakingState === "original") {
         originMesh.visible = true;
@@ -84,39 +85,39 @@ export function AboutJake({ breakingState, setBreakingState }: AboutJakeProps) {
           mesh.position.x = MathUtils.lerp(
             mesh.originalPosition.x,
             mesh.targetPosition.x,
-            elapsedTime / speedDivision
+            elapsedTime / speedDivision,
           );
           mesh.position.y = MathUtils.lerp(
             mesh.originalPosition.y,
             mesh.targetPosition.y,
-            elapsedTime / speedDivision
+            elapsedTime / speedDivision,
           );
           mesh.position.z = MathUtils.lerp(
             mesh.originalPosition.z,
             mesh.targetPosition.z,
-            elapsedTime / speedDivision
+            elapsedTime / speedDivision,
           );
           mesh.rotation.x = MathUtils.lerp(
             mesh.originalRotation.x,
             mesh.targetRotation.x,
-            elapsedTime / speedDivision
+            elapsedTime / speedDivision,
           );
           mesh.rotation.y = MathUtils.lerp(
             mesh.originalRotation.y,
             mesh.targetRotation.y,
-            elapsedTime / speedDivision
+            elapsedTime / speedDivision,
           );
           mesh.rotation.z = MathUtils.lerp(
             mesh.originalRotation.z,
             mesh.targetRotation.z,
-            elapsedTime / speedDivision
+            elapsedTime / speedDivision,
           );
         }
       });
   });
 
   return (
-    <group dispose={null} ref={group}>
+    <group scale={2} position={[0, -1, 0]} dispose={null} ref={group}>
       <mesh
         name="origin"
         visible={true}

@@ -40,7 +40,7 @@ const buttonVariants = {
     opacity: 1,
     transition: {
       type: "tween",
-      delay: 2,
+      delay: 5,
       duration: 2,
     },
   },
@@ -53,6 +53,7 @@ export const TitleSequence = ({ breakingState, setBreakingState }: Props) => {
         initial="hidden"
         animate="show"
         transition={{
+          delayChildren: 1,
           staggerChildren: 0.2,
         }}
         className="flex absolute flex-col items-center w-full top-[100px]"
