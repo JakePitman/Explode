@@ -77,7 +77,7 @@ export const TitleSequence = ({ breakingState, setBreakingState }: Props) => {
 
         <motion.button
           variants={buttonVariants}
-          className="py-1 px-5 mt-4 text-black rounded border-2 border-black border-solid transition-all hover:text-white hover:bg-black"
+          className="py-1 mt-4 w-60 text-black rounded border-2 border-black border-solid transition-all hover:text-white hover:bg-black"
           onClick={() => {
             if (breakingState === "original") {
               setBreakingState("breaking");
